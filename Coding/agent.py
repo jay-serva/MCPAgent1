@@ -6,6 +6,9 @@ from datetime import datetime
 from pathlib import Path
 import io
 
+# Kurral integration
+from kurral import trace_agent
+
 warnings.filterwarnings('ignore')
 warnings.filterwarnings('ignore', category=FutureWarning)
 warnings.filterwarnings('ignore', category=UserWarning)
@@ -498,6 +501,8 @@ if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "export_graph
     sys.exit(0)
 
 def run_query(q: str) -> State:
+    """Run a query through the compliance agent graph"""
+    # Invoke the graph - Kurral will capture this through the decorator context
     return app.invoke({"question": q, "execution_path": []})
 
 def create_artifact_file() -> Path:
@@ -541,7 +546,9 @@ def log_trace(artifact_file: Path, question: str, result: State):
     with open(artifact_file, 'w') as f:
         json.dump(data, f, indent=2)
 
-if __name__ == "__main__":
+@trace_agent()
+def main():
+    """Main function wrapped with Kurral tracing"""
     print("=" * 60)
     print("Compliance Query Agent")
     print("=" * 60)
@@ -600,4 +607,7 @@ if __name__ == "__main__":
             print(f"\nError processing query: {e}")
             print("Please try again.\n")
             continue
+
+if __name__ == "__main__":
+    main()
 

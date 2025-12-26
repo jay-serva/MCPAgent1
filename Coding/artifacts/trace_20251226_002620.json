@@ -1,0 +1,22 @@
+{
+  "session_start": "2025-12-26T00:26:20.036117",
+  "queries": [
+    {
+      "timestamp": "2025-12-26T00:28:20.746134",
+      "question": "are employees allowed to trade in the stock market?",
+      "expanded_query": "Are employees, defined as individuals working for an organization, permitted to engage in trading activities within the stock market, which refers to the marketplace for buying and selling shares of publicly traded companies? This inquiry also considers compliance with regulations regarding insider trading, which involves trading based on non-public, material information, as well as adherence to company policy that may impose restrictions on such trading activities.",
+      "doc_types": [
+        "compliance",
+        "risk"
+      ],
+      "answer": "There is no internal documentation available for this topic. Please consult the official compliance office or policy owner.",
+      "explanation": "Q: Can employees buy and sell stocks?\n\nA: We don't have any specific rules on this. It's best to check with the compliance office or the person in charge of company policies.",
+      "sources": [],
+      "audit_trail": "No contextual evidence found.",
+      "confidence": 0.1,
+      "num_chunks_retrieved": 0,
+      "num_chunks_used": 0
+    }
+  ],
+  "session_end": "2025-12-26T00:28:20.746134"
+}
